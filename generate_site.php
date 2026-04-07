@@ -222,7 +222,7 @@ $html = <<<HTML
         container.innerHTML = playlist.videos.map((v, i) => {
           return '<div class="video-card" style="animation-delay: ' + (i * 0.08) + 's">' +
             '<div class="video-card__embed">' +
-              '<iframe src="https://www.youtube-nocookie.com/embed/' + v.youtube_id + '" ' +
+              '<iframe src="https://www.youtube-nocookie.com/embed/' + extractYoutubeId(v.youtube_id) + '" ' +
                 'title="' + escapeHtml(v.title) + '" frameborder="0" ' +
                 'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ' +
                 'referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>' +
@@ -242,6 +242,15 @@ $html = <<<HTML
       header.innerHTML = '<span class="playlist-header__icon">▶</span>' +
         '<span>Sélectionnez un composant pour voir les vidéos</span>';
       container.innerHTML = '';
+    }
+
+    function extractYoutubeId(input) {
+      // Si c'est une URL complète (https://youtu.be/...), extraire l'ID
+      if (input.includes('https://youtu.be/')) {
+        return input.split('https://youtu.be/')[1];
+      }
+      // Sinon, c'est déjà un ID
+      return input;
     }
 
     function escapeHtml(text) {
