@@ -108,16 +108,16 @@
             {
                 "youtube_id": "LAWRK5yBPdU",
                 "title": "Qu'est-ce que le Fine Tuning ? (explications simples)"
-            },
-            {
-                "youtube_id": "VIDEO_ID_3",
-                "title": "Titre vidéo LLM 3"
             }
         ]
     },
     "diffusion-model": {
         "label": "Diffusion Model",
         "videos": [
+            {
+                "youtube_id": "https:\/\/youtu.be\/Iq4zOvDeJFE",
+                "title": "Tuto : Je montre comment je fais mes illustrations avec ChatGPT"
+            },
             {
                 "youtube_id": "LAWRK5yBPdU",
                 "title": "Qu'est-ce que le Fine Tuning ? (explications simples)"
@@ -134,14 +134,6 @@
             {
                 "youtube_id": "msbehMVDFeA",
                 "title": "On teste la reconnaissance vocale de toutes les IA"
-            },
-            {
-                "youtube_id": "VIDEO_ID_8",
-                "title": "Titre vidéo ASR 2"
-            },
-            {
-                "youtube_id": "VIDEO_ID_9",
-                "title": "Titre vidéo ASR 3"
             }
         ]
     },
@@ -156,37 +148,11 @@
     },
     "interface-utilisateur": {
         "label": "Interface Utilisateur",
-        "videos": [
-            {
-                "youtube_id": "VIDEO_ID_13",
-                "title": "Titre vidéo Interface 1"
-            },
-            {
-                "youtube_id": "VIDEO_ID_14",
-                "title": "Titre vidéo Interface 2"
-            },
-            {
-                "youtube_id": "VIDEO_ID_15",
-                "title": "Titre vidéo Interface 3"
-            }
-        ]
+        "videos": []
     },
     "canevas": {
         "label": "Canevas",
-        "videos": [
-            {
-                "youtube_id": "VIDEO_ID_16",
-                "title": "Titre vidéo Canevas 1"
-            },
-            {
-                "youtube_id": "VIDEO_ID_17",
-                "title": "Titre vidéo Canevas 2"
-            },
-            {
-                "youtube_id": "VIDEO_ID_18",
-                "title": "Titre vidéo Canevas 3"
-            }
-        ]
+        "videos": []
     },
     "api": {
         "label": "API",
@@ -198,10 +164,6 @@
             {
                 "youtube_id": "https:\/\/youtu.be\/qNG42lR2wMc",
                 "title": "Tuto API ChatGPT"
-            },
-            {
-                "youtube_id": "VIDEO_ID_21",
-                "title": "Titre vidéo API 3"
             }
         ]
     },
@@ -211,20 +173,7 @@
     },
     "rag": {
         "label": "RAG",
-        "videos": [
-            {
-                "youtube_id": "VIDEO_ID_25",
-                "title": "Titre vidéo RAG 1"
-            },
-            {
-                "youtube_id": "VIDEO_ID_26",
-                "title": "Titre vidéo RAG 2"
-            },
-            {
-                "youtube_id": "VIDEO_ID_27",
-                "title": "Titre vidéo RAG 3"
-            }
-        ]
+        "videos": []
     },
     "custom-gpts": {
         "label": "Custom GPTs",
@@ -236,29 +185,12 @@
             {
                 "youtube_id": "https:\/\/youtu.be\/1pKth1Mk3Ss",
                 "title": "Tuto Custom GPT : Prompt is Code 💻"
-            },
-            {
-                "youtube_id": "VIDEO_ID_30",
-                "title": "Titre vidéo Custom GPTs 3"
             }
         ]
     },
     "agents": {
         "label": "Agents",
-        "videos": [
-            {
-                "youtube_id": "VIDEO_ID_31",
-                "title": "Titre vidéo Agents 1"
-            },
-            {
-                "youtube_id": "VIDEO_ID_32",
-                "title": "Titre vidéo Agents 2"
-            },
-            {
-                "youtube_id": "VIDEO_ID_33",
-                "title": "Titre vidéo Agents 3"
-            }
-        ]
+        "videos": []
     }
 };
 
@@ -305,7 +237,7 @@
         container.innerHTML = playlist.videos.map((v, i) => {
           return '<div class="video-card" style="animation-delay: ' + (i * 0.08) + 's">' +
             '<div class="video-card__embed">' +
-              '<iframe src="https://www.youtube-nocookie.com/embed/' + v.youtube_id + '" ' +
+              '<iframe src="https://www.youtube-nocookie.com/embed/' + extractYoutubeId(v.youtube_id) + '" ' +
                 'title="' + escapeHtml(v.title) + '" frameborder="0" ' +
                 'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ' +
                 'referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>' +
@@ -325,6 +257,15 @@
       header.innerHTML = '<span class="playlist-header__icon">▶</span>' +
         '<span>Sélectionnez un composant pour voir les vidéos</span>';
       container.innerHTML = '';
+    }
+
+    function extractYoutubeId(input) {
+      // Si c'est une URL complète (https://youtu.be/...), extraire l'ID
+      if (input.includes('https://youtu.be/')) {
+        return input.split('https://youtu.be/')[1];
+      }
+      // Sinon, c'est déjà un ID
+      return input;
     }
 
     function escapeHtml(text) {

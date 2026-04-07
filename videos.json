@@ -6,8 +6,8 @@
       "icon": "IA.png",
       "videos": [
         { "youtube_id": "vQL_1mBZbUI", "title": "Qu'est-ce qu'un LLM (+ Tuto LM Studio & Huggingface)" },
-        { "youtube_id": "LAWRK5yBPdU", "title": "Qu'est-ce que le Fine Tuning ? (explications simples)" },
-        { "youtube_id": "VIDEO_ID_3", "title": "Titre vidéo LLM 3" }
+        { "youtube_id": "LAWRK5yBPdU", "title": "Qu'est-ce que le Fine Tuning ? (explications simples)" }
+
       ]
     },
     {
@@ -15,8 +15,9 @@
       "label": "Diffusion Model",
       "icon": "abstrait.png",
       "videos": [
+        { "youtube_id": "https://youtu.be/Iq4zOvDeJFE", "title": "Tuto : Je montre comment je fais mes illustrations avec ChatGPT" },
         { "youtube_id": "LAWRK5yBPdU", "title": "Qu'est-ce que le Fine Tuning ? (explications simples)" },
-		{ "youtube_id": "VuAA0fnz2OE", "title": "ChatGPT a mis à jour sa Génération d'Images et on teste différents modèles de génération d'images accessibles depuis ChatGPT" }
+		    { "youtube_id": "VuAA0fnz2OE", "title": "ChatGPT a mis à jour sa Génération d'Images et on teste différents modèles de génération d'images accessibles depuis ChatGPT" }
       ]
     },
     {
@@ -24,9 +25,7 @@
       "label": "ASR Model",
       "icon": "microphone2.png",
       "videos": [
-        { "youtube_id": "msbehMVDFeA", "title": "On teste la reconnaissance vocale de toutes les IA" },
-        { "youtube_id": "VIDEO_ID_8", "title": "Titre vidéo ASR 2" },
-        { "youtube_id": "VIDEO_ID_9", "title": "Titre vidéo ASR 3" }
+        { "youtube_id": "msbehMVDFeA", "title": "On teste la reconnaissance vocale de toutes les IA" }
       ]
     },
     {
@@ -42,9 +41,6 @@
       "label": "Interface Utilisateur",
       "icon": "searching.png",
       "videos": [
-        { "youtube_id": "VIDEO_ID_13", "title": "Titre vidéo Interface 1" },
-        { "youtube_id": "VIDEO_ID_14", "title": "Titre vidéo Interface 2" },
-        { "youtube_id": "VIDEO_ID_15", "title": "Titre vidéo Interface 3" }
       ]
     },
     {
@@ -52,9 +48,6 @@
       "label": "Canevas",
       "icon": "piano.png",
       "videos": [
-        { "youtube_id": "VIDEO_ID_16", "title": "Titre vidéo Canevas 1" },
-        { "youtube_id": "VIDEO_ID_17", "title": "Titre vidéo Canevas 2" },
-        { "youtube_id": "VIDEO_ID_18", "title": "Titre vidéo Canevas 3" }
       ]
     },
     {
@@ -63,8 +56,7 @@
       "icon": "api4.png",
       "videos": [
         { "youtube_id": "https://youtu.be/MalpJyAwsiI", "title": "Qu'est-ce qu'une API ? Quelle est la particularité de l'API ChatGPT ?" },
-        { "youtube_id": "https://youtu.be/qNG42lR2wMc", "title": "Tuto API ChatGPT" },
-        { "youtube_id": "VIDEO_ID_21", "title": "Titre vidéo API 3" }
+        { "youtube_id": "https://youtu.be/qNG42lR2wMc", "title": "Tuto API ChatGPT" }
       ]
     },
     {
@@ -79,9 +71,6 @@
       "label": "RAG",
       "icon": "database2.png",
       "videos": [
-        { "youtube_id": "VIDEO_ID_25", "title": "Titre vidéo RAG 1" },
-        { "youtube_id": "VIDEO_ID_26", "title": "Titre vidéo RAG 2" },
-        { "youtube_id": "VIDEO_ID_27", "title": "Titre vidéo RAG 3" }
       ]
     },
     {
@@ -90,8 +79,7 @@
       "icon": "custom-chatbot.png",
       "videos": [
         { "youtube_id": "https://youtu.be/yUjk4CKtBpw", "title": "Comment Customiser ChatGPT afin qu'il réalise des tâches récurrentes ? | Tutoriel" },
-        { "youtube_id": "https://youtu.be/1pKth1Mk3Ss", "title": "Tuto Custom GPT : Prompt is Code 💻" },
-        { "youtube_id": "VIDEO_ID_30", "title": "Titre vidéo Custom GPTs 3" }
+        { "youtube_id": "https://youtu.be/1pKth1Mk3Ss", "title": "Tuto Custom GPT : Prompt is Code 💻" }
       ]
     },
     {
@@ -99,9 +87,6 @@
       "label": "Agents",
       "icon": "Agent.png",
       "videos": [
-        { "youtube_id": "VIDEO_ID_31", "title": "Titre vidéo Agents 1" },
-        { "youtube_id": "VIDEO_ID_32", "title": "Titre vidéo Agents 2" },
-        { "youtube_id": "VIDEO_ID_33", "title": "Titre vidéo Agents 3" }
       ]
     }
   ]
