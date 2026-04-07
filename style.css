@@ -175,9 +175,10 @@ body {
 }
 
 /* Placement droite : LLM occupe lignes 1-2, Diffusion 3-5, ASR 6-7 */
-.cell--right[data-sujet="llm"]             { grid-row: 1 / 3; }
-.cell--right[data-sujet="diffusion-model"] { grid-row: 3 / 6; }
-.cell--right[data-sujet="asr-model"]       { grid-row: 6 / 8; }
+/* 3 niveaux de bleu comme sur l'image originale */
+.cell--right[data-sujet="llm"]             { grid-row: 1 / 3; background-color: #E3F2FD; }
+.cell--right[data-sujet="diffusion-model"] { grid-row: 3 / 6; background-color: #BBDEFB; }
+.cell--right[data-sujet="asr-model"]       { grid-row: 6 / 8; background-color: #90CAF9; }
 
 /* ── Centre ── */
 .schema__center {
