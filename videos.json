@@ -1,0 +1,111 @@
+{
+  "sujets": [
+    {
+      "id": "llm",
+      "label": "LLM",
+      "icon": "IA.png",
+      "videos": [
+        { "youtube_id": "vQL_1mBZbUI", "title": "Qu'est-ce qu'un LLM (+ Tuto LM Studio & Huggingface)" },
+        { "youtube_id": "LAWRK5yBPdU", "title": "Qu'est-ce que le Fine Tuning ? (explications simples)" },
+        { "youtube_id": "VIDEO_ID_3", "title": "Titre vidéo LLM 3" }
+      ]
+    },
+    {
+      "id": "diffusion-model",
+      "label": "Diffusion Model",
+      "icon": "abstrait.png",
+      "videos": [
+        { "youtube_id": "LAWRK5yBPdU", "title": "Qu'est-ce que le Fine Tuning ? (explications simples)" },
+		{ "youtube_id": "VuAA0fnz2OE", "title": "ChatGPT a mis à jour sa Génération d'Images et on teste différents modèles de génération d'images accessibles depuis ChatGPT" }
+      ]
+    },
+    {
+      "id": "asr-model",
+      "label": "ASR Model",
+      "icon": "microphone2.png",
+      "videos": [
+        { "youtube_id": "msbehMVDFeA", "title": "On teste la reconnaissance vocale de toutes les IA" },
+        { "youtube_id": "VIDEO_ID_8", "title": "Titre vidéo ASR 2" },
+        { "youtube_id": "VIDEO_ID_9", "title": "Titre vidéo ASR 3" }
+      ]
+    },
+    {
+      "id": "moteurs-inference",
+      "label": "Moteurs d'inférences",
+      "icon": "gear.png",
+      "videos": [
+        { "youtube_id": "vQL_1mBZbUI", "title": "Qu'est-ce qu'un LLM (+ Tuto LM Studio & Huggingface)" }
+      ]
+    },
+    {
+      "id": "interface-utilisateur",
+      "label": "Interface Utilisateur",
+      "icon": "searching.png",
+      "videos": [
+        { "youtube_id": "VIDEO_ID_13", "title": "Titre vidéo Interface 1" },
+        { "youtube_id": "VIDEO_ID_14", "title": "Titre vidéo Interface 2" },
+        { "youtube_id": "VIDEO_ID_15", "title": "Titre vidéo Interface 3" }
+      ]
+    },
+    {
+      "id": "canevas",
+      "label": "Canevas",
+      "icon": "piano.png",
+      "videos": [
+        { "youtube_id": "VIDEO_ID_16", "title": "Titre vidéo Canevas 1" },
+        { "youtube_id": "VIDEO_ID_17", "title": "Titre vidéo Canevas 2" },
+        { "youtube_id": "VIDEO_ID_18", "title": "Titre vidéo Canevas 3" }
+      ]
+    },
+    {
+      "id": "api",
+      "label": "API",
+      "icon": "api4.png",
+      "videos": [
+        { "youtube_id": "VIDEO_ID_19", "title": "Titre vidéo API 1" },
+        { "youtube_id": "VIDEO_ID_20", "title": "Titre vidéo API 2" },
+        { "youtube_id": "VIDEO_ID_21", "title": "Titre vidéo API 3" }
+      ]
+    },
+    {
+      "id": "connecteurs",
+      "label": "Connecteurs",
+      "icon": "cable-connector.png",
+      "videos": [
+        { "youtube_id": "VIDEO_ID_22", "title": "Titre vidéo Connecteurs 1" },
+        { "youtube_id": "VIDEO_ID_23", "title": "Titre vidéo Connecteurs 2" },
+        { "youtube_id": "VIDEO_ID_24", "title": "Titre vidéo Connecteurs 3" }
+      ]
+    },
+    {
+      "id": "rag",
+      "label": "RAG",
+      "icon": "database2.png",
+      "videos": [
+        { "youtube_id": "VIDEO_ID_25", "title": "Titre vidéo RAG 1" },
+        { "youtube_id": "VIDEO_ID_26", "title": "Titre vidéo RAG 2" },
+        { "youtube_id": "VIDEO_ID_27", "title": "Titre vidéo RAG 3" }
+      ]
+    },
+    {
+      "id": "custom-gpts",
+      "label": "Custom GPTs",
+      "icon": "custom-chatbot.png",
+      "videos": [
+        { "youtube_id": "VIDEO_ID_28", "title": "Titre vidéo Custom GPTs 1" },
+        { "youtube_id": "VIDEO_ID_29", "title": "Titre vidéo Custom GPTs 2" },
+        { "youtube_id": "VIDEO_ID_30", "title": "Titre vidéo Custom GPTs 3" }
+      ]
+    },
+    {
+      "id": "agents",
+      "label": "Agents",
+      "icon": "Agent.png",
+      "videos": [
+        { "youtube_id": "VIDEO_ID_31", "title": "Titre vidéo Agents 1" },
+        { "youtube_id": "VIDEO_ID_32", "title": "Titre vidéo Agents 2" },
+        { "youtube_id": "VIDEO_ID_33", "title": "Titre vidéo Agents 3" }
+      ]
+    }
+  ]
+}
