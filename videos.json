@@ -62,8 +62,8 @@
       "label": "API",
       "icon": "api4.png",
       "videos": [
-        { "youtube_id": "VIDEO_ID_19", "title": "Titre vidéo API 1" },
-        { "youtube_id": "VIDEO_ID_20", "title": "Titre vidéo API 2" },
+        { "youtube_id": "https://youtu.be/MalpJyAwsiI", "title": "Qu'est-ce qu'une API ? Quelle est la particularité de l'API ChatGPT ?" },
+        { "youtube_id": "https://youtu.be/qNG42lR2wMc", "title": "Tuto API ChatGPT" },
         { "youtube_id": "VIDEO_ID_21", "title": "Titre vidéo API 3" }
       ]
     },
@@ -72,9 +72,6 @@
       "label": "Connecteurs",
       "icon": "cable-connector.png",
       "videos": [
-        { "youtube_id": "VIDEO_ID_22", "title": "Titre vidéo Connecteurs 1" },
-        { "youtube_id": "VIDEO_ID_23", "title": "Titre vidéo Connecteurs 2" },
-        { "youtube_id": "VIDEO_ID_24", "title": "Titre vidéo Connecteurs 3" }
       ]
     },
     {
@@ -92,8 +89,8 @@
       "label": "Custom GPTs",
       "icon": "custom-chatbot.png",
       "videos": [
-        { "youtube_id": "VIDEO_ID_28", "title": "Titre vidéo Custom GPTs 1" },
-        { "youtube_id": "VIDEO_ID_29", "title": "Titre vidéo Custom GPTs 2" },
+        { "youtube_id": "https://youtu.be/yUjk4CKtBpw", "title": "Comment Customiser ChatGPT afin qu'il réalise des tâches récurrentes ? | Tutoriel" },
+        { "youtube_id": "https://youtu.be/1pKth1Mk3Ss", "title": "Tuto Custom GPT : Prompt is Code 💻" },
         { "youtube_id": "VIDEO_ID_30", "title": "Titre vidéo Custom GPTs 3" }
       ]
     },
