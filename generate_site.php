@@ -224,7 +224,7 @@ $html = <<<HTML
             '<div class="video-card__embed">' +
               '<iframe src="https://www.youtube-nocookie.com/embed/' + extractYoutubeId(v.youtube_id) + '" ' +
                 'title="' + escapeHtml(v.title) + '" frameborder="0" ' +
-                'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ' +
+                'allow="autoplay; fullscreen" ' +
                 'referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>' +
             '</div>' +
             '<p class="video-card__title">' + escapeHtml(v.title) + '</p>' +
