@@ -48,7 +48,7 @@ body {
 /* ── Header ── */
 .site-header {
   text-align: center;
-  padding: 3rem 1.5rem 1.5rem;
+  padding: 3rem 1.5rem 1rem;
 }
 
 .site-header h1 {
@@ -63,6 +63,49 @@ body {
   margin-top: 0.5rem;
   color: var(--color-text-muted);
   font-size: 0.95rem;
+}
+
+/* ── Navigation ── */
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.nav__link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  text-decoration: none;
+  transition: background-color var(--transition),
+              border-color var(--transition),
+              color var(--transition),
+              box-shadow var(--transition);
+  white-space: nowrap;
+}
+
+.nav__link:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+  box-shadow: 0 2px 10px var(--color-accent-glow);
+}
+
+.nav__link--active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+  box-shadow: 0 2px 10px var(--color-accent-glow);
+  pointer-events: none;
 }
 
 /* ── Main layout ── */
@@ -362,6 +405,40 @@ body {
   color: var(--color-text-muted);
   border-top: 1px solid var(--color-border);
   margin-top: auto;
+}
+
+/* ── Placeholder pages ── */
+.placeholder-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+  padding: 3rem 1rem;
+}
+
+.placeholder-card {
+  text-align: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 3rem 2.5rem;
+  max-width: 480px;
+}
+
+.placeholder-card h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-text);
+}
+
+.placeholder-card p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 /* ── Responsive ── */

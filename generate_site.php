@@ -4,7 +4,7 @@
  * 
  * Génère un site statique HTML à partir du fichier videos.json
  * Usage : php generate_site.php
- * Produit : index.html
+ * Produit : index.html + pages secondaires
  */
 
 $jsonFile = __DIR__ . '/videos.json';
@@ -22,6 +22,78 @@ if ($data === null) {
 
 $sujets = $data['sujets'];
 
+// ── Définition des pages du site ──
+$pages = [
+    ['id' => 'composants',   'label' => 'Composants',                  'file' => 'index.html'],
+    ['id' => 'vibe-coding',  'label' => 'Vibe Coding',                 'file' => 'vibe-coding.html'],
+    ['id' => 'tests-ia',     'label' => "Tests d'IA",                  'file' => 'tests-ia.html'],
+    ['id' => 'ia-locale',    'label' => 'IA Locale',                   'file' => 'ia-locale.html'],
+    ['id' => 'reflexions',   'label' => "Réflexions / Comprendre l'IA",'file' => 'reflexions.html'],
+    ['id' => 'speech-to-text','label' => 'Speech to Text',             'file' => 'speech-to-text.html'],
+    ['id' => 'use-cases',    'label' => 'Use Cases',                   'file' => 'use-cases.html'],
+];
+
+// ── Fonctions utilitaires pour le template commun ──
+
+function renderNavbar(array $pages, string $currentId): string {
+    $items = '';
+    foreach ($pages as $p) {
+        $href    = htmlspecialchars($p['file']);
+        $label   = htmlspecialchars($p['label']);
+        $active  = ($p['id'] === $currentId) ? ' nav__link--active' : '';
+        $aria    = ($p['id'] === $currentId) ? ' aria-current="page"' : '';
+        $items  .= "      <a class=\"nav__link{$active}\" href=\"{$href}\"{$aria}>{$label}</a>\n";
+    }
+    return $items;
+}
+
+function renderPageHead(string $title): string {
+    return <<<HTML
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{$title}</title>
+  <link rel="icon" href="images/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+HTML;
+}
+
+function renderHeader(string $title, string $subtitle, array $pages, string $currentId): string {
+    $nav = renderNavbar($pages, $currentId);
+    return <<<HTML
+
+  <header class="site-header">
+    <h1>{$title}</h1>
+    <p class="subtitle">{$subtitle}</p>
+    <nav class="site-nav">
+{$nav}    </nav>
+  </header>
+HTML;
+}
+
+function renderFooter(): string {
+    return <<<HTML
+
+  <footer class="site-footer">
+    <p>© 2026 — Les composants de l'IA Générative</p>
+  </footer>
+
+</body>
+</html>
+HTML;
+}
+
+// ══════════════════════════════════════════════════════════
+// PAGE : Composants (index.html)
+// ══════════════════════════════════════════════════════════
+
 // Construire le JS des playlists
 $playlistsJs = "const playlists = " . json_encode(
     array_combine(
@@ -37,10 +109,6 @@ $playlistsJs = "const playlists = " . json_encode(
 ) . ";";
 
 // ── Layout : reproduire fidèlement le schéma ──
-// Colonne gauche : Interface Utilisateur, Canevas, API, Connecteurs, RAG, Custom GPTs, Agents
-// Centre : Moteurs d'inférences
-// Colonne droite : LLM, Diffusion Model, ASR Model
-
 $leftItems = [];
 $centerItem = null;
 $rightItems = [];
@@ -59,13 +127,11 @@ foreach ($sujets as $s) {
     }
 }
 
-// Trier selon l'ordre voulu
 $leftOrder = array_flip($leftIds);
 usort($leftItems, fn($a, $b) => $leftOrder[$a['id']] <=> $leftOrder[$b['id']]);
 $rightOrder = array_flip($rightIds);
 usort($rightItems, fn($a, $b) => $rightOrder[$a['id']] <=> $rightOrder[$b['id']]);
 
-// Couleurs par rangée gauche (dégradé jaune → orange)
 $leftColors = [
     'interface-utilisateur' => '#FFF8E1',
     'canevas'               => '#FFECB3',
@@ -75,8 +141,6 @@ $leftColors = [
     'custom-gpts'           => '#F5A623',
     'agents'                => '#E09000',
 ];
-
-// ── Génération des blocs HTML ──
 
 function renderLeftCell(array $item, string $bg): string {
     $id    = htmlspecialchars($item['id']);
@@ -113,29 +177,21 @@ foreach ($rightItems as $item) {
 }
 
 $centerIcon  = htmlspecialchars($centerItem['icon']);
-$centerId    = htmlspecialchars($centerItem['id']);
+$centerIdSafe = htmlspecialchars($centerItem['id']);
 $centerLabel = htmlspecialchars($centerItem['label']);
 
-// ── Template HTML ──
-$html = <<<HTML
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Composants de l'IA Générative</title>
-  <link rel="icon" href="images/favicon.ico" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+$pageHead   = renderPageHead('Composants de l\'IA Générative');
+$pageHeader = renderHeader(
+    'Les composants de l\'IA Générative',
+    'Cliquez sur un composant pour explorer les vidéos associées',
+    $pages,
+    'composants'
+);
+$pageFooter = renderFooter();
 
-  <header class="site-header">
-    <h1>Les composants de l'IA Générative</h1>
-    <p class="subtitle">Cliquez sur un composant pour explorer les vidéos associées</p>
-  </header>
+$composantsHtml = <<<HTML
+{$pageHead}
+{$pageHeader}
 
   <main class="main-layout">
 
@@ -148,7 +204,7 @@ $html = <<<HTML
         </div>
 
         <!-- Centre -->
-        <button class="schema__center" data-sujet="{$centerId}">
+        <button class="schema__center" data-sujet="{$centerIdSafe}">
           <span class="cell__label">{$centerLabel}</span>
           <img src="images/{$centerIcon}" alt="{$centerLabel}" class="cell__icon cell__icon--center" />
         </button>
@@ -172,10 +228,6 @@ $html = <<<HTML
     </section>
 
   </main>
-
-  <footer class="site-footer">
-    <p>© 2026 — Les composants de l'IA Générative</p>
-  </footer>
 
   <script>
     {$playlistsJs}
@@ -246,11 +298,9 @@ $html = <<<HTML
     }
 
     function extractYoutubeId(input) {
-      // Si c'est une URL complète (https://youtu.be/...), extraire l'ID
       if (input.includes('https://youtu.be/')) {
         return input.split('https://youtu.be/')[1];
       }
-      // Sinon, c'est déjà un ID
       return input;
     }
 
@@ -260,12 +310,44 @@ $html = <<<HTML
       return div.innerHTML;
     }
   </script>
-
-</body>
-</html>
+{$pageFooter}
 HTML;
 
-// Écriture
-$outputFile = __DIR__ . '/index.html';
-file_put_contents($outputFile, $html);
-echo "✅ Site généré avec succès : {$outputFile}\n";
+file_put_contents(__DIR__ . '/index.html', $composantsHtml);
+echo "✅ Page générée : index.html (Composants)\n";
+
+// ══════════════════════════════════════════════════════════
+// PAGES SECONDAIRES (placeholder)
+// ══════════════════════════════════════════════════════════
+
+foreach ($pages as $page) {
+    if ($page['id'] === 'composants') continue; // déjà générée
+
+    $label     = htmlspecialchars($page['label']);
+    $pageHead  = renderPageHead($label . ' — IA Générative');
+    $pageHeader = renderHeader(
+        $label,
+        'Contenu à venir…',
+        $pages,
+        $page['id']
+    );
+    $pageFooter = renderFooter();
+
+    $stubHtml = <<<HTML
+{$pageHead}
+{$pageHeader}
+
+  <main class="main-layout">
+    <section class="placeholder-section">
+      <div class="placeholder-card">
+        <h2>🚧 Page en construction</h2>
+        <p>Le contenu de la section <strong>{$label}</strong> sera bientôt disponible.</p>
+      </div>
+    </section>
+  </main>
+{$pageFooter}
+HTML;
+
+    file_put_contents(__DIR__ . '/' . $page['file'], $stubHtml);
+    echo "✅ Page générée : {$page['file']} ({$label})\n";
+}

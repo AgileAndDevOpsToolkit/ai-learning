@@ -15,6 +15,15 @@
   <header class="site-header">
     <h1>Les composants de l'IA Générative</h1>
     <p class="subtitle">Cliquez sur un composant pour explorer les vidéos associées</p>
+    <nav class="site-nav">
+      <a class="nav__link nav__link--active" href="index.html" aria-current="page">Composants</a>
+      <a class="nav__link" href="vibe-coding.html">Vibe Coding</a>
+      <a class="nav__link" href="tests-ia.html">Tests d'IA</a>
+      <a class="nav__link" href="ia-locale.html">IA Locale</a>
+      <a class="nav__link" href="reflexions.html">Réflexions / Comprendre l'IA</a>
+      <a class="nav__link" href="speech-to-text.html">Speech to Text</a>
+      <a class="nav__link" href="use-cases.html">Use Cases</a>
+    </nav>
   </header>
 
   <main class="main-layout">
@@ -92,10 +101,6 @@
     </section>
 
   </main>
-
-  <footer class="site-footer">
-    <p>© 2026 — Les composants de l'IA Générative</p>
-  </footer>
 
   <script>
     const playlists = {
@@ -261,11 +266,9 @@
     }
 
     function extractYoutubeId(input) {
-      // Si c'est une URL complète (https://youtu.be/...), extraire l'ID
       if (input.includes('https://youtu.be/')) {
         return input.split('https://youtu.be/')[1];
       }
-      // Sinon, c'est déjà un ID
       return input;
     }
 
@@ -275,6 +278,10 @@
       return div.innerHTML;
     }
   </script>
+
+  <footer class="site-footer">
+    <p>© 2026 — Les composants de l'IA Générative</p>
+  </footer>
 
 </body>
 </html>
