@@ -128,6 +128,66 @@
           ]
         }
       ]
+    },
+    {
+      "id": "tests-ia",
+      "label": "Tests d'IA",
+      "themes": [
+        {
+          "name": "Questions Agilité",
+          "description": "Tests des IA sur des questions liées aux pratiques agiles.",
+          "videos": [
+            { "youtube_id": "https://youtu.be/OChJUyU8dWk", "title": "Questions Agilité — Test 1" },
+            { "youtube_id": "https://youtu.be/dcxUaeH-z4Y", "title": "Questions Agilité — Test 2" },
+            { "youtube_id": "https://youtu.be/QimIFnkOCA4", "title": "Questions Agilité — Test 3" },
+            { "youtube_id": "https://youtu.be/xX4FqB3eo1c", "title": "Questions Agilité — Test 4" },
+            { "youtube_id": "https://youtu.be/e-WzAmTcbH0", "title": "Questions Agilité — Test 5" },
+            { "youtube_id": "https://youtu.be/8m3mw_AJC3g", "title": "Questions Agilité — Test 6" },
+            { "youtube_id": "https://youtu.be/Jg0Mlvs6oMY", "title": "Questions Agilité — Test 7" },
+            { "youtube_id": "https://youtu.be/WndMc3zyslU", "title": "Questions Agilité — Test 8" },
+            { "youtube_id": "https://youtu.be/KjQoTN35vx0", "title": "Questions Agilité — Test 9" },
+            { "youtube_id": "https://youtu.be/VBl8HD9fmEU", "title": "Questions Agilité — Test 10" },
+            { "youtube_id": "https://youtu.be/a7AkWmHmD3U", "title": "Questions Agilité — Test 11" },
+            { "youtube_id": "https://youtu.be/0wq97uCeKx4", "title": "Questions Agilité — Test 12" }
+          ]
+        },
+        {
+          "name": "Dessin",
+          "description": "Tests des capacités de génération d'images et de dessin des IA.",
+          "videos": [
+            { "youtube_id": "https://youtu.be/0Fg0-ufPo_c", "title": "Dessin — Test 1" },
+            { "youtube_id": "https://youtu.be/wSJGMRr9vmw", "title": "Dessin — Test 2" },
+            { "youtube_id": "https://youtu.be/FI1OlBZ-HaE", "title": "Dessin — Test 3" },
+            { "youtube_id": "https://youtu.be/TPRjzFR78bQ", "title": "Dessin — Test 4" },
+            { "youtube_id": "https://youtu.be/lmvzLztrtpQ", "title": "Dessin — Test 5" }
+          ]
+        },
+        {
+          "name": "Synthèses",
+          "description": "Tests des IA sur la capacité à produire des synthèses de documents.",
+          "videos": [
+            { "youtube_id": "https://youtu.be/OnPn_DEiu8A", "title": "Synthèses — Test 1" },
+            { "youtube_id": "https://youtu.be/sYr-MnXurUY", "title": "Synthèses — Test 2" },
+            { "youtube_id": "https://youtu.be/WSED-zz4AXY", "title": "Synthèses — Test 3" },
+            { "youtube_id": "https://youtu.be/AfzD34gZ6A0", "title": "Synthèses — Test 4" }
+          ]
+        },
+        {
+          "name": "Générer des slides",
+          "description": "Tests des IA sur la génération de présentations et diapositives.",
+          "videos": [
+            { "youtube_id": "https://youtu.be/XaUYdbCj6UM", "title": "Générer des slides — Test 1" },
+            { "youtube_id": "https://youtu.be/Ea3jXVh72RA", "title": "Générer des slides — Test 2" }
+          ]
+        },
+        {
+          "name": "Reconnaissance vocale",
+          "description": "Tests des capacités de reconnaissance vocale des différentes IA.",
+          "videos": [
+            { "youtube_id": "https://youtu.be/msbehMVDFeA", "title": "Reconnaissance vocale — Test" }
+          ]
+        }
+      ]
     }
   ]
 }

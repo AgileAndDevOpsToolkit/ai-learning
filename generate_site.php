@@ -28,6 +28,7 @@ foreach ($data['pages'] as $p) {
 
 $sujets = $pagesData['composants']['sujets'];
 $vibeCodingData = $pagesData['vibe-coding'] ?? null;
+$testsIaData = $pagesData['tests-ia'] ?? null;
 
 // ── Définition des pages du site ──
 $pages = [
@@ -410,11 +411,82 @@ HTML;
 }
 
 // ══════════════════════════════════════════════════════════
+// PAGE : Tests d'IA (tests-ia.html)
+// ══════════════════════════════════════════════════════════
+
+if ($testsIaData) {
+    $themes = $testsIaData['themes'];
+
+    $themesHtml = '';
+    foreach ($themes as $theme) {
+        $tName = htmlspecialchars($theme['name']);
+        $tDesc = htmlspecialchars($theme['description']);
+
+        $videosHtml = '';
+        foreach ($theme['videos'] as $v) {
+            $ytId   = extractYoutubeIdPHP($v['youtube_id']);
+            $vtitle = htmlspecialchars($v['title']);
+            $videosHtml .= <<<HTML
+            <div class="vc-video">
+              <div class="vc-video__embed">
+                <iframe src="https://www.youtube-nocookie.com/embed/{$ytId}"
+                  title="{$vtitle}" frameborder="0"
+                  allow="autoplay; fullscreen"
+                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <p class="vc-video__title">{$vtitle}</p>
+            </div>
+HTML;
+            $videosHtml .= "\n";
+        }
+
+        $themesHtml .= <<<HTML
+      <article class="vc-app">
+        <div class="vc-app__header vc-app__header--no-icon">
+          <div class="vc-app__info">
+            <h2 class="vc-app__name">{$tName}</h2>
+            <p class="vc-app__desc">{$tDesc}</p>
+          </div>
+        </div>
+        <div class="vc-app__videos">
+{$videosHtml}
+        </div>
+      </article>
+HTML;
+        $themesHtml .= "\n";
+    }
+
+    $tiPageHead = renderPageHead('Tests d\'IA — IA Générative');
+    $tiPageHeader = renderHeader(
+        'Tests d\'IA',
+        'Comparatifs et mises à l\'épreuve des intelligences artificielles',
+        $pages,
+        'tests-ia'
+    );
+    $tiPageFooter = renderFooter();
+
+    $testsIaHtml = <<<HTML
+{$tiPageHead}
+{$tiPageHeader}
+
+  <main class="main-layout main-layout--wide">
+    <section class="vc-section">
+{$themesHtml}
+    </section>
+  </main>
+{$tiPageFooter}
+HTML;
+
+    file_put_contents(__DIR__ . '/tests-ia.html', $testsIaHtml);
+    echo "✅ Page générée : tests-ia.html (Tests d'IA)\n";
+}
+
+// ══════════════════════════════════════════════════════════
 // PAGES SECONDAIRES (placeholder)
 // ══════════════════════════════════════════════════════════
 
 foreach ($pages as $page) {
-    if (in_array($page['id'], ['composants', 'vibe-coding'])) continue; // déjà générées
+    if (in_array($page['id'], ['composants', 'vibe-coding', 'tests-ia'])) continue; // déjà générées
 
     $label     = htmlspecialchars($page['label']);
     $pageHead  = renderPageHead($label . ' — IA Générative');

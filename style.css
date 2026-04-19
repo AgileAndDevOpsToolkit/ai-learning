@@ -452,6 +452,10 @@ body {
   flex-shrink: 0;
 }
 
+.vc-app__header--no-icon {
+  padding: 1.25rem 1.5rem;
+}
+
 .vc-app__info {
   min-width: 0;
 }
