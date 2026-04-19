@@ -188,6 +188,16 @@
           ]
         }
       ]
+    },
+    {
+      "id": "ia-locale",
+      "label": "IA Locale",
+      "description": "Découvrez comment installer et utiliser des modèles d'intelligence artificielle directement sur votre machine, sans dépendre du cloud.",
+      "videos": [
+        { "youtube_id": "https://youtu.be/qhCH237rC9c", "title": "IA Locale — Vidéo 1" },
+        { "youtube_id": "https://youtu.be/a7AkWmHmD3U", "title": "IA Locale — Vidéo 2" },
+        { "youtube_id": "https://youtu.be/0wq97uCeKx4", "title": "IA Locale — Vidéo 3" }
+      ]
     }
   ]
 }

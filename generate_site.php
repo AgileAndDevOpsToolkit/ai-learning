@@ -29,6 +29,7 @@ foreach ($data['pages'] as $p) {
 $sujets = $pagesData['composants']['sujets'];
 $vibeCodingData = $pagesData['vibe-coding'] ?? null;
 $testsIaData = $pagesData['tests-ia'] ?? null;
+$iaLocaleData = $pagesData['ia-locale'] ?? null;
 
 // ── Définition des pages du site ──
 $pages = [
@@ -482,11 +483,63 @@ HTML;
 }
 
 // ══════════════════════════════════════════════════════════
+// PAGE : IA Locale (ia-locale.html)
+// ══════════════════════════════════════════════════════════
+
+if ($iaLocaleData) {
+    $ilDesc = htmlspecialchars($iaLocaleData['description']);
+
+    $videosHtml = '';
+    foreach ($iaLocaleData['videos'] as $v) {
+        $ytId   = extractYoutubeIdPHP($v['youtube_id']);
+        $vtitle = htmlspecialchars($v['title']);
+        $videosHtml .= <<<HTML
+            <div class="vc-video">
+              <div class="vc-video__embed">
+                <iframe src="https://www.youtube-nocookie.com/embed/{$ytId}"
+                  title="{$vtitle}" frameborder="0"
+                  allow="autoplay; fullscreen"
+                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <p class="vc-video__title">{$vtitle}</p>
+            </div>
+HTML;
+        $videosHtml .= "\n";
+    }
+
+    $ilPageHead = renderPageHead('IA Locale — IA Générative');
+    $ilPageHeader = renderHeader(
+        'IA Locale',
+        $ilDesc,
+        $pages,
+        'ia-locale'
+    );
+    $ilPageFooter = renderFooter();
+
+    $iaLocaleHtml = <<<HTML
+{$ilPageHead}
+{$ilPageHeader}
+
+  <main class="main-layout main-layout--wide">
+    <section class="vc-section">
+      <div class="vc-app__videos">
+{$videosHtml}
+      </div>
+    </section>
+  </main>
+{$ilPageFooter}
+HTML;
+
+    file_put_contents(__DIR__ . '/ia-locale.html', $iaLocaleHtml);
+    echo "✅ Page générée : ia-locale.html (IA Locale)\n";
+}
+
+// ══════════════════════════════════════════════════════════
 // PAGES SECONDAIRES (placeholder)
 // ══════════════════════════════════════════════════════════
 
 foreach ($pages as $page) {
-    if (in_array($page['id'], ['composants', 'vibe-coding', 'tests-ia'])) continue; // déjà générées
+    if (in_array($page['id'], ['composants', 'vibe-coding', 'tests-ia', 'ia-locale'])) continue; // déjà générées
 
     $label     = htmlspecialchars($page['label']);
     $pageHead  = renderPageHead($label . ' — IA Générative');
