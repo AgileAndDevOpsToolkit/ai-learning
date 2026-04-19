@@ -1,92 +1,132 @@
 {
-  "sujets": [
+  "pages": [
     {
-      "id": "llm",
-      "label": "LLM",
-      "icon": "IA.png",
-      "videos": [
-        { "youtube_id": "vQL_1mBZbUI", "title": "Qu'est-ce qu'un LLM (+ Tuto LM Studio & Huggingface)" },
-        { "youtube_id": "LAWRK5yBPdU", "title": "Qu'est-ce que le Fine Tuning ? (explications simples)" }
-
+      "id": "composants",
+      "label": "Composants",
+      "sujets": [
+        {
+          "id": "llm",
+          "label": "LLM",
+          "icon": "IA.png",
+          "videos": [
+            { "youtube_id": "vQL_1mBZbUI", "title": "Qu'est-ce qu'un LLM (+ Tuto LM Studio & Huggingface)" },
+            { "youtube_id": "LAWRK5yBPdU", "title": "Qu'est-ce que le Fine Tuning ? (explications simples)" }
+          ]
+        },
+        {
+          "id": "diffusion-model",
+          "label": "Diffusion Model",
+          "icon": "abstrait.png",
+          "videos": [
+            { "youtube_id": "https://youtu.be/Iq4zOvDeJFE", "title": "Tuto : Je montre comment je fais mes illustrations avec ChatGPT" },
+            { "youtube_id": "LAWRK5yBPdU", "title": "Qu'est-ce que le Fine Tuning ? (explications simples)" },
+            { "youtube_id": "VuAA0fnz2OE", "title": "ChatGPT a mis à jour sa Génération d'Images et on teste différents modèles de génération d'images accessibles depuis ChatGPT" }
+          ]
+        },
+        {
+          "id": "asr-model",
+          "label": "ASR Model",
+          "icon": "microphone2.png",
+          "videos": [
+            { "youtube_id": "msbehMVDFeA", "title": "On teste la reconnaissance vocale de toutes les IA" }
+          ]
+        },
+        {
+          "id": "moteurs-inference",
+          "label": "Moteurs d'inférences",
+          "icon": "gear.png",
+          "videos": [
+            { "youtube_id": "vQL_1mBZbUI", "title": "Qu'est-ce qu'un LLM (+ Tuto LM Studio & Huggingface)" }
+          ]
+        },
+        {
+          "id": "interface-utilisateur",
+          "label": "Interface Utilisateur",
+          "icon": "searching.png",
+          "videos": []
+        },
+        {
+          "id": "canevas",
+          "label": "Canevas",
+          "icon": "piano.png",
+          "videos": []
+        },
+        {
+          "id": "api",
+          "label": "API",
+          "icon": "api4.png",
+          "videos": [
+            { "youtube_id": "https://youtu.be/MalpJyAwsiI", "title": "Qu'est-ce qu'une API ? Quelle est la particularité de l'API ChatGPT ?" },
+            { "youtube_id": "https://youtu.be/qNG42lR2wMc", "title": "Tuto API ChatGPT" }
+          ]
+        },
+        {
+          "id": "connecteurs",
+          "label": "Connecteurs",
+          "icon": "cable-connector.png",
+          "videos": []
+        },
+        {
+          "id": "rag",
+          "label": "RAG",
+          "icon": "database2.png",
+          "videos": []
+        },
+        {
+          "id": "custom-gpts",
+          "label": "Custom GPTs",
+          "icon": "custom-chatbot.png",
+          "videos": [
+            { "youtube_id": "https://youtu.be/yUjk4CKtBpw", "title": "Comment Customiser ChatGPT afin qu'il réalise des tâches récurrentes ? | Tutoriel" },
+            { "youtube_id": "https://youtu.be/1pKth1Mk3Ss", "title": "Tuto Custom GPT : Prompt is Code 💻" }
+          ]
+        },
+        {
+          "id": "agents",
+          "label": "Agents",
+          "icon": "Agent.png",
+          "videos": []
+        }
       ]
     },
     {
-      "id": "diffusion-model",
-      "label": "Diffusion Model",
-      "icon": "abstrait.png",
-      "videos": [
-        { "youtube_id": "https://youtu.be/Iq4zOvDeJFE", "title": "Tuto : Je montre comment je fais mes illustrations avec ChatGPT" },
-        { "youtube_id": "LAWRK5yBPdU", "title": "Qu'est-ce que le Fine Tuning ? (explications simples)" },
-		    { "youtube_id": "VuAA0fnz2OE", "title": "ChatGPT a mis à jour sa Génération d'Images et on teste différents modèles de génération d'images accessibles depuis ChatGPT" }
-      ]
-    },
-    {
-      "id": "asr-model",
-      "label": "ASR Model",
-      "icon": "microphone2.png",
-      "videos": [
-        { "youtube_id": "msbehMVDFeA", "title": "On teste la reconnaissance vocale de toutes les IA" }
-      ]
-    },
-    {
-      "id": "moteurs-inference",
-      "label": "Moteurs d'inférences",
-      "icon": "gear.png",
-      "videos": [
-        { "youtube_id": "vQL_1mBZbUI", "title": "Qu'est-ce qu'un LLM (+ Tuto LM Studio & Huggingface)" }
-      ]
-    },
-    {
-      "id": "interface-utilisateur",
-      "label": "Interface Utilisateur",
-      "icon": "searching.png",
-      "videos": [
-      ]
-    },
-    {
-      "id": "canevas",
-      "label": "Canevas",
-      "icon": "piano.png",
-      "videos": [
-      ]
-    },
-    {
-      "id": "api",
-      "label": "API",
-      "icon": "api4.png",
-      "videos": [
-        { "youtube_id": "https://youtu.be/MalpJyAwsiI", "title": "Qu'est-ce qu'une API ? Quelle est la particularité de l'API ChatGPT ?" },
-        { "youtube_id": "https://youtu.be/qNG42lR2wMc", "title": "Tuto API ChatGPT" }
-      ]
-    },
-    {
-      "id": "connecteurs",
-      "label": "Connecteurs",
-      "icon": "cable-connector.png",
-      "videos": [
-      ]
-    },
-    {
-      "id": "rag",
-      "label": "RAG",
-      "icon": "database2.png",
-      "videos": [
-      ]
-    },
-    {
-      "id": "custom-gpts",
-      "label": "Custom GPTs",
-      "icon": "custom-chatbot.png",
-      "videos": [
-        { "youtube_id": "https://youtu.be/yUjk4CKtBpw", "title": "Comment Customiser ChatGPT afin qu'il réalise des tâches récurrentes ? | Tutoriel" },
-        { "youtube_id": "https://youtu.be/1pKth1Mk3Ss", "title": "Tuto Custom GPT : Prompt is Code 💻" }
-      ]
-    },
-    {
-      "id": "agents",
-      "label": "Agents",
-      "icon": "Agent.png",
-      "videos": [
+      "id": "vibe-coding",
+      "label": "Vibe Coding",
+      "applications": [
+        {
+          "name": "Roue des prénoms",
+          "icon": "roue-des-prenoms.png",
+          "description": "Application interactive de roue aléatoire pour tirer des prénoms au sort.",
+          "videos": [
+            { "youtube_id": "https://youtu.be/YnaGphNTMio", "title": "Roue des prénoms — Partie 1" },
+            { "youtube_id": "https://youtu.be/_J655DHocxk", "title": "Roue des prénoms — Partie 2" },
+            { "youtube_id": "https://youtu.be/0uffwwc_jnM", "title": "Roue des prénoms — Partie 3" }
+          ]
+        },
+        {
+          "name": "Quiz",
+          "icon": "quiz.png",
+          "description": "Application de quiz interactif générée par IA.",
+          "videos": [
+            { "youtube_id": "https://youtu.be/KoXADH7j7aA", "title": "Quiz" }
+          ]
+        },
+        {
+          "name": "Extreme Quotation",
+          "icon": "extreme-quotation.png",
+          "description": "Outil d'estimation agile par la méthode Extreme Quotation.",
+          "videos": [
+            { "youtube_id": "https://youtu.be/Ii_JgY4HaTw", "title": "Extreme Quotation" }
+          ]
+        },
+        {
+          "name": "Burndown Chart",
+          "icon": "burndown-chart.png",
+          "description": "Générateur de Burndown Chart pour le suivi de sprint.",
+          "videos": [
+            { "youtube_id": "https://youtu.be/oZ0jPkYszbg", "title": "Burndown Chart" }
+          ]
+        }
       ]
     }
   ]

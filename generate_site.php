@@ -20,7 +20,14 @@ if ($data === null) {
     die("Erreur : le fichier videos.json est invalide.\n" . json_last_error_msg() . "\n");
 }
 
-$sujets = $data['sujets'];
+// Indexer les pages par id pour un accès rapide
+$pagesData = [];
+foreach ($data['pages'] as $p) {
+    $pagesData[$p['id']] = $p;
+}
+
+$sujets = $pagesData['composants']['sujets'];
+$vibeCodingData = $pagesData['vibe-coding'] ?? null;
 
 // ── Définition des pages du site ──
 $pages = [
@@ -317,11 +324,97 @@ file_put_contents(__DIR__ . '/index.html', $composantsHtml);
 echo "✅ Page générée : index.html (Composants)\n";
 
 // ══════════════════════════════════════════════════════════
+// PAGE : Vibe Coding (vibe-coding.html)
+// ══════════════════════════════════════════════════════════
+
+function extractYoutubeIdPHP(string $input): string {
+    if (str_contains($input, 'youtu.be/')) {
+        $parts = explode('youtu.be/', $input);
+        return $parts[1];
+    }
+    if (str_contains($input, 'youtube.com/watch')) {
+        parse_str(parse_url($input, PHP_URL_QUERY), $qs);
+        return $qs['v'] ?? $input;
+    }
+    return $input;
+}
+
+if ($vibeCodingData) {
+    $apps = $vibeCodingData['applications'];
+
+    $appsHtml = '';
+    foreach ($apps as $app) {
+        $name = htmlspecialchars($app['name']);
+        $icon = htmlspecialchars($app['icon']);
+        $desc = htmlspecialchars($app['description']);
+        $videoCount = count($app['videos']);
+
+        $videosHtml = '';
+        foreach ($app['videos'] as $v) {
+            $ytId    = extractYoutubeIdPHP($v['youtube_id']);
+            $vtitle  = htmlspecialchars($v['title']);
+            $videosHtml .= <<<HTML
+            <div class="vc-video">
+              <div class="vc-video__embed">
+                <iframe src="https://www.youtube-nocookie.com/embed/{$ytId}"
+                  title="{$vtitle}" frameborder="0"
+                  allow="autoplay; fullscreen"
+                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <p class="vc-video__title">{$vtitle}</p>
+            </div>
+HTML;
+            $videosHtml .= "\n";
+        }
+
+        $appsHtml .= <<<HTML
+      <article class="vc-app">
+        <div class="vc-app__header">
+          <img src="images/vibe-coding/{$icon}" alt="{$name}" class="vc-app__icon" />
+          <div class="vc-app__info">
+            <h2 class="vc-app__name">{$name}</h2>
+            <p class="vc-app__desc">{$desc}</p>
+          </div>
+        </div>
+        <div class="vc-app__videos">
+{$videosHtml}
+        </div>
+      </article>
+HTML;
+        $appsHtml .= "\n";
+    }
+
+    $vcPageHead = renderPageHead('Vibe Coding — IA Générative');
+    $vcPageHeader = renderHeader(
+        'Vibe Coding',
+        'Applications créées par IA — explorez les vidéos de chaque projet',
+        $pages,
+        'vibe-coding'
+    );
+    $vcPageFooter = renderFooter();
+
+    $vibeCodingHtml = <<<HTML
+{$vcPageHead}
+{$vcPageHeader}
+
+  <main class="main-layout main-layout--wide">
+    <section class="vc-section">
+{$appsHtml}
+    </section>
+  </main>
+{$vcPageFooter}
+HTML;
+
+    file_put_contents(__DIR__ . '/vibe-coding.html', $vibeCodingHtml);
+    echo "✅ Page générée : vibe-coding.html (Vibe Coding)\n";
+}
+
+// ══════════════════════════════════════════════════════════
 // PAGES SECONDAIRES (placeholder)
 // ══════════════════════════════════════════════════════════
 
 foreach ($pages as $page) {
-    if ($page['id'] === 'composants') continue; // déjà générée
+    if (in_array($page['id'], ['composants', 'vibe-coding'])) continue; // déjà générées
 
     $label     = htmlspecialchars($page['label']);
     $pageHead  = renderPageHead($label . ' — IA Générative');
