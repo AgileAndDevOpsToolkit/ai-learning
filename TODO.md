@@ -1,0 +1,4 @@
+- Embeds Youtube plus petits ? (à voir, pas sûr)
+- Meilleure gestion des ascensceurs dans les listes des composants d'une IA générative ?
+- AJouter un onglet "Agilité et IA" ?
+- Onglet "Use Cases IA" : sous forme de "tiles" thématiques organisées par colonne : colonne "dessin" etc.
